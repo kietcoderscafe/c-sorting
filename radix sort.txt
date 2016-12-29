@@ -1,0 +1,120 @@
+   SORTING:sorting means arranging the elements of an array so that they are placed in some relevant order which may be either ascending 
+or desecnding.That is , if is an array,then the elements of A are arranged in sorted order in such a way that A [0]<A[1]<...<A[N].
+
+for example, if we have an array that is declared and initialized as
+int A[] ={21,34,11,9,1,0,22};
+then the sorted array :
+A[]={0,1,9,11,21,22,34};
+
+    A sorting alogirthm is defined as an algorithm that puts the elements of a list in a certain order which can be either numerical 
+order, lexicograpical order,or any userdefined order. efficient sorting algorithms are widely used to optimize the use of other
+alrorithm like search and merge algorithms which requre the sorted list to work corectly.terir are two types of sortings :
+
+INTERNAL SORTING:which deals with sorting the data stored in the computer's memory.
+EXTERNAL SORTING:which deals with the sorting data stored in files.
+                 external sorting is applied when there is voluminous data that cannot be stored in memory.
+
+there are seven sorting techniques:
+1.RADIX SORT
+2.HEAP SORT
+3.SELECTION SORT
+4.INSERTION SORT
+5.QUICK SORT
+6.MERGE SORT
+7.BUBBLE SORT
+  
+ RADIX SORT:radix sort is a linear sorting algorithm for integers and uses the concept of sorting names in alphabetical order.
+     In computer science, radix sort is a non -comparitive integer sorting algirithm that sorts the data with integer keys by
+     grouping keys by the individual digits which share the same significant position and value. radix sort dates back as far
+     as 1887 to the work of HERMAN HOLLERITH on tabulating machine.
+
+
+                   There are two classification of radix sorting:
+                           1.least significant digit(LSD) radix sort
+                           2.most significant digit(MSD) radix sort
+
+LSD radix sort is a fast stable sorting algorithm whih can be used to sort keys in inteeger repreaentation order.
+ 
+       when we have  a list of sorted of names, the radix is 26 (or 26 buckets) because there are 26 letters in 
+english alaphabet.so radix sort i also known as BUCKET SORT. that is , 26 classes are used to arrange the names,
+where the first class stores the names that begin with A, the second class contains the names with B, and so on.
+      
+       During the second pass, names  are grouped according to the second letter. After the second psss, names
+ are sorted on the first two letters. this process is continued till the nth pass, where n is the length of
+ the name with maximum number of letters.
+
+      After every pass, all the names are collected in order of buckets. That is, first pick up the names in the first
+ bucket that contains the name begining with A. In the second pass, collect the names from the  second bucket, so on.
+ 
+     When radix sort is used on intergers, sorting is done on each of the digits  in the number. The  sorting procedure
+ proceeds by sorting the least siginificant to the most siginificant digit.while sorting the numbers ,we have ten buckets,
+each for one digit(0,1,2,.......9) and the numbers of passes will depend on the length of the number having maximum number 
+of the digits.
+
+alogrithim:
+step-1: find the largest number in ARR as LARGE.
+step2: [INTIALIZE] SET NOP = number of digits in large
+srep3:set pass=0
+repeat step 5 while pass <=nop-1
+step5: set i=0 and intialize buckets
+step6: repeat steps  7 to 9 while I<N-1
+step7: set digit = digit at PASSth place in A[I]
+step8: add A[I] to the bucket numberer digit.
+step9: INCREMENT bucket count for bucket numbered digit
+                 [END OF LOOP]
+step10:collect the numbers in the bucket
+                [END OF LOOP]
+step11: END
+
+
+COMPLEXITY OF RADIX SORT:
+                          the time complexity of radix sort  is O(kn) , the alorigthm  runs in O(n) asymptotic time.
+
+ 
+
+   Program
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+int main()
+{
+int a[100][100],r=0,c=0,i,sz,b[50],temp;
+printf("size of array");
+scanf("%d",&sz);
+printf("\n");
+for(r=0;r<100;r++)
+{
+}
+       for(c=0;c<100;c++)
+       a[r][c]=1000;
+       }    
+          for(i=0;i<sz;i++)
+             printf("enter the elements %d:",i+1);
+                 scanf("%d",&b[i]);
+                   r=b[i]/100;
+                      c=b[i]%100;
+                          a[r][c]=b[i];
+                                       }
+                                            for(r=0;r<100;r++)
+                                                          {
+                                                              for(c=0;c<100;c++)
+                                                                                 {
+                                                                                    for(i=0;i<sz;i++)
+                                                                                           {
+                                                                                                 if(a[r][c]==b[i])
+                                                                                                           {
+                                                                                                               printf("\n\t");
+                                                                                                                 printf("%d",a[r][c]);
+                                                                                   }
+                                                                                                     
+                                                                                                                               }
+                                                                                                                                  getch();
+                                                                                                                                      }
+
+                                                                                                                                      --	
+
+PROS AND CONS OF RADIX SORT:
+                           radix sort is very simple algorithm. radix is the one of the fastest sorting alogorithm for no of
+                             strings of letters. BUT  radix sort takes more space than other sorting alogprithms.
+                              Another draw back of radix sort is that ther alogorithm is depedent on digits or letters .                      
+	  
