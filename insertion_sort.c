@@ -40,7 +40,7 @@ int main()	//it is the main function where the execution begins
 	printf("After sorting: ");
 	for(i = 0;i < size; i++)	//iterating the output as entire elements of the array need to be displayed 
 	{
-		printf(" %d", array[i]);	//showing the sorted result
+	  printf(" %d", array[i]);	//showing the sorted result
 	}
 	//as we are using int function we need to return 0 to show successful exit
 	return 0; 
