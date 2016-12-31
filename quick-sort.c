@@ -1,65 +1,81 @@
-//quick sort is an efficient sorting algorithm,serving as a systematic method for placing the elements of an array
+//quick sort is an efficient sorting algorithm, serving as a systematic method for placing the elements
 in order.
-//quick sort is a comparison sort,meaning that it can sort items of any type for which a "less-than" relation is defined
-starting quick sort with a standard input output headerfile
+//quick sort is a comparison sort,meaning that it can sort items of any type for which a"less-than"relation
+is defined.
+// including header file stdio.h for input and output
+
 #include<stdio.h>
+#include<conio.h>
 
-void quicksort(int [10],int,int);
-
-int main()
+//quick Sort function to Sort Integer array list
+void quicksort(int array[], int firstIndex, int lastIndex)
 {
-  int x[20],size,i;
-  //the size of array is entered
-  
-  printf("Enter size of the array: ");
-  scanf("%d",&size);
+    //declaaring index variables
+    int pivotIndex, temp, index1, index2;
 
-  printf("Enter %d elements: ",size);
-  //the elements will be entered
-   
-  for(i=0;i<size;i++)
-    scanf("%d",&x[i]);
+    if(firstIndex < lastIndex)
+    {
+        //assigninh first element index as pivot element
+        pivotIndex = firstIndex;
+        index1 = firstIndex;
+        index2 = lastIndex;
 
-  quicksort(x,0,size-1);
+        //Sorting in Ascending order with quick sort
+        while(index1 < index2)
+        {
+            while(array[index1] <= array[pivotIndex] && index1 < lastIndex)
+            {
+                index1++;
+            }
+            while(array[index2]>array[pivotIndex])
+            {
+                index2--;
+            }
 
-  printf("Sorted elements: ");
-  for(i=0;i<size;i++)
-    printf(" %d",x[i]);
+            if(index1<index2)
+            {
+                //Swapping opertation
+                temp = array[index1];
+                array[index1] = array[index2];
+                array[index2] = temp;
+            }
+        }
 
-  return 0;
-}
+        //At the end of first iteration, swap pivot element with index2 element
+        temp = array[pivotIndex];
+        array[pivotIndex] = array[index2];
+        array[index2] = temp;
 
-void quicksort(int x[10],int first,int last)
-{
-    int pivot,j,temp,i;
-
-     if(first<last)
-     {
-         pivot=first;
-         i=first;
-         j=last;
-
-         while(i<j)
-         {
-             while(x[i]<=x[pivot]&&i<last)
-                 i++;
-             while(x[j]>x[pivot])
-                 j--;
-             if(i<j)
-             {
-                 temp=x[i];
-                  x[i]=x[j];
-                  x[j]=temp;
-             }
-         }
-
-         temp=x[pivot];
-         x[pivot]=x[j];
-         x[j]=temp;
-         quicksort(x,first,j-1);
-         quicksort(x,j+1,last);
-
+        //Recursive call for quick sort, with partiontioning
+        quicksort(array, firstIndex, index2-1);
+        quicksort(array, index2+1, lastIndex);
     }
 }
 
+int main()
+{
+    //Declaring variables
+    int array[100],n,i;
 
+    //Number of elements in array form user input
+    printf("Enter the number of element you want to Sort : ");
+    scanf("%d",&n);
+
+    //code to ask to enter elements from user equal to n
+    printf("Enter Elements in the list : ");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d",&array[i]);
+    }
+
+    //calling quickSort function defined above
+    quicksort(array,0,n-1);
+
+    //print sorted array
+    printf("Sorted elements: ");
+    for(i=0;i<n;i++)
+    printf(" %d",array[i]);
+     getch();
+    return 0;//as we are using int function we need to show return0 to show succesful exit
+
+}
