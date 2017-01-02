@@ -15,27 +15,27 @@ The time complexity of radix sort  is O(kn) , the alorigthm  runs in O(n) asympt
 /* C implementation of Radix Sort*/
 #include<stdio.h>
 // A utility function to get maximum value in arr[]
-int getMax(int arr[],int n)
+int getMax(int a[],int n)
 {
-	int mx = arr[0] ,i;
+	int mx = a[0] ,i; //mx maximum value in arr[]//
 	for( i=1; i<n; i++)
 		{
-		    if (arr[i] > mx)
-                mx = arr[i];
+		    if (a[i] > mx)
+                mx = a[i];
 		}
 	return mx;
 }
 
 // A function to do counting sort of arr[] according to
 // the digit represented by exp.
-void countS(int arr[], int n, int exp)
+void countS(int a[], int n, int exp)
 {
 	int op[n]; // output array
 	int i, count[10] = {0};
 
 	// Store count of occurrences in count[]
 	for (i = 0; i < n; i++)
-            count[ (arr[i]/exp)%10 ]++;
+            count[ (a[i]/exp)%10 ]++;
 
 	// Change count[i] so that count[i] now contains actual
 	// position of this digit in output[]
@@ -45,49 +45,49 @@ void countS(int arr[], int n, int exp)
 	// Build the output array
 	for (i = n - 1; i >= 0; i--)
 	{
-	    op[count[ (arr[i]/exp)%10 ] - 1] = arr[i];
-	    count[ (arr[i]/exp)%10 ]--;
+	    op[count[ (a[i]/exp)%10 ] - 1] = arr[i];
+	    count[ (a[i]/exp)%10 ]--;
 	}
 
 	// Copy the output array to arr[], so that arr[] now
 	// contains sorted numbers according to current digit
 	for (i = 0; i < n; i++)
-	    arr[i] = op[i];
+	    a[i] = op[i];
 }
 
 // The main function to that sorts arr[] of size n using
 // Radix Sort
-void sort(int arr[], int n)
+void sort(int a[], int n)
 {
 	// Find the maximum number to know number of digits
-	int m = getMax(arr,n);
+	int m = getMax(a,n);
 	int exp;
 
 	// Do counting sort for every digit. Note that instead
 	// of passing digit number, exp is passed. exp is 10^i
 	// where i is current digit number
 	for (exp=1;m/exp >0; exp*= 10)
-	    countS(arr,n,exp);
+	    countS(a,n,exp);
 }
 
 // A utility function to print an array
-void print(int arr[], int n)
+void print(int a[], int n)
 {
     int i;
     printf("The sorted order is :");
     for (i=0;i<n;i++)
-        printf("%d \n",arr[i]);
+        printf("%d \n",a[i]);
 }
 
 // Driver program to test above functions
 int main()
 {
-	int arr[10],i,m=10;
+	int a[10],i,m=10;
 	printf("enter the elements : \n");
 	for(i=0;i<m;i++)
-            scanf ("%d",&arr[i]);
-	int n = sizeof(arr)/sizeof(arr[0]);
-	sort(arr,n);
-	print(arr, n);
+            scanf ("%d",&a[i]);
+	int n = sizeof(a)/sizeof(a[0]);
+	sort(a,n);
+	print(a, n);
 	return 0;
 }
