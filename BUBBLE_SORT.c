@@ -20,21 +20,23 @@ int main() //function returns the int value.
 	{
 		scanf("%d", &array[c]);
 	}
-    for (c = 0 ; c < ( size - 1 ); c++)
-    {
-    	for (d = 0 ; d < size - c - 1; d++)
+    	for (c = 0 ; c < ( size - 1 ); c++)
     	{
-      		if (array[d] > array[d+1]) //a "if loop" says mainly about the condition
-      		{
-        		swap = array[d];
-        		array[d]  array[d+1];
-        		array[d+1] = swap;
-      		}
-    	}
+    		for (d = 0 ; d < size - c - 1; d++)
+    		{
+      			if (array[d] > array[d+1]) //a "if loop" says mainly about the condition
+      			{
+        			swap = array[d];
+        			array[d] =array[d+1];
+        			array[d+1] = swap;
+			}
+    		}
 	}
  	printf("Sorted list in ascending order:\n");
  	for ( c = 0 ; c < size ; c++ )
-    printf("%d\n", array[c]);
+	{
+    		printf("%d\n", array[c]);
+	}
  	return 0;
 }
 
