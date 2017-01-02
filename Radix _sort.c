@@ -1,8 +1,8 @@
-/*"EXPANDBLES TEAM":
-Aditya
-Shivani
-Sai leela
-Roopa
+/*"expandables team":
+aditya
+shivani
+sai leela
+roopa
 Implementation of "Radix Sort" using c programming
 'Radix sort'or 'Counting sort' is a linear and stable algorithm  for integers
 Uses the concept of sorting names in alphabetical order
