@@ -7,21 +7,17 @@
 #include <stdio.h> //It is a statement which tells the compiler to insert the  contends of stdio at that particular place 
 int main() //function returns the int value.
 {
-	int arr[100], size, c, d, swap; //int[] array is similar to the int array[] 
- 	printf("Enter number of elements\n"); //prinf formates the data to stdout
-  	scanf("%d", &size);// the 
-	scanf function allows to accept input from standard in.
-	/*
-	int uses-%d
-	float uses-%f
-	char uses-%c
-	*/
+	//declaring the variable size to read the input from the user and c,d for the iteration purpose
+	//arr and swap are used to store the elements
+	int arr[100],size,c,d,swap;
+ 	printf("Enter number of elements\n"); //printf formates the data to stdout
+  	scanf("%d", &size);// it reads the input from the user
 	printf("Enter %d integers\n", size);
-	for (c = 0; c < size; c++) // A "for loop" genearlly iterates the function.
+	for (c = 0; c < size; c++) //  "for loop" genearlly iterates the function.
 	{
 		scanf("%d", &arr[c]);
 	}
-    	for (c = 0 ; c < ( size - 1 ); c++)
+    	for (c = 0 ; c < ( size - 1 ); c++) 
     	{
     		for (d = 0 ; d < size - c - 1; d++)
     		{
@@ -34,9 +30,9 @@ int main() //function returns the int value.
     		}
 	}
  	printf("Sorted list in ascending order:\n");
- 	for ( c = 0 ; c < size ; c++ )
+ 	for ( c = 0 ; c < size ; c++ ) // it iterates to display all the elements of the array in the output 
 	{
-    		printf("%d\n", arr[c]);
+    		printf("%d\n", arr[c]); // shows the sorted result
 	}
  	return 0;
 }
