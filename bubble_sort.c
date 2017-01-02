@@ -7,9 +7,10 @@
 #include <stdio.h> //It is a statement which tells the compiler to insert the  contends of stdio at that particular place 
 int main() //function returns the int value.
 {
-	int array[100], size, c, d, swap; //int[] array is similar to the int array[] 
+	int arr[100], size, c, d, swap; //int[] array is similar to the int array[] 
  	printf("Enter number of elements\n"); //prinf formates the data to stdout
-  	scanf("%d", &size);// the scanf function allows to accept input from standard in.
+  	scanf("%d", &size);// the 
+	scanf function allows to accept input from standard in.
 	/*
 	int uses-%d
 	float uses-%f
@@ -18,24 +19,24 @@ int main() //function returns the int value.
 	printf("Enter %d integers\n", size);
 	for (c = 0; c < size; c++) // A "for loop" genearlly iterates the function.
 	{
-		scanf("%d", &array[c]);
+		scanf("%d", &arr[c]);
 	}
     	for (c = 0 ; c < ( size - 1 ); c++)
     	{
     		for (d = 0 ; d < size - c - 1; d++)
     		{
-      			if (array[d] > array[d+1]) //a "if loop" says mainly about the condition
+      			if (arr[d] > arr[d+1]) //a "if loop" says mainly about the condition
       			{
-        			swap = array[d];
-        			array[d] =array[d+1];
-        			array[d+1] = swap;
+        			swap = arr[d];
+        			arr[d] =arr[d+1];
+        			arr[d+1] = swap;
 			}
     		}
 	}
  	printf("Sorted list in ascending order:\n");
  	for ( c = 0 ; c < size ; c++ )
 	{
-    		printf("%d\n", array[c]);
+    		printf("%d\n", arr[c]);
 	}
  	return 0;
 }
