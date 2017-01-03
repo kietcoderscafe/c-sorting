@@ -23,9 +23,9 @@ int main() //function returns the int value.
     		{
       			if (arr[d] > arr[d+1]) //a "if loop" says mainly about the condition
       			{
-        			swap = arr[d]; //
-        			arr[d] =arr[d+1];
-        			arr[d+1] = swap;
+        			swap = arr[d]; //Assigning value of arr[d] to swap just to hold it temporary
+        			arr[d] =arr[d+1]; //Assigning arr[d] to next element of arr[]
+        			arr[d+1] = swap; //moving temporary swap to next element of arr[] i.e., arr[d+1] 
 			}
     		}
 	}
