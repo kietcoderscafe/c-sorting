@@ -23,12 +23,13 @@ int main() //function returns the int value.
     		{
       			if (arr[d] > arr[d+1]) //a "if loop" says mainly about the condition
       			{
-        			swap = arr[d];
+        			swap = arr[d]; //
         			arr[d] =arr[d+1];
         			arr[d+1] = swap;
 			}
     		}
 	}
+	
  	printf("Sorted list in ascending order:\n");
  	for ( c = 0 ; c < size ; c++ ) // it iterates to display all the elements of the array in the output 
 	{
@@ -38,5 +39,6 @@ int main() //function returns the int value.
 }
 
 	
+
 
 
