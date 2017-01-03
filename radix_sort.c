@@ -14,28 +14,28 @@ COMPLEXITY OF RADIX SORT:
 The time complexity of radix sort  is O(kn) , the alorigthm  runs in O(n) asymptotic time.
 /* C implementation of Radix Sort*/
 #include<stdio.h>
-// A utility function to get maximum value in arr[]
-int getMax(int a[],int n)
+// A utility function to get maximum value in k[]
+int getMax(int k[],int n)
 {
-	int mx = a[0] ,i; //mx maximum value in arr[]//
+	int mx = k[0] ,i; //mx maximum value in k[]//
 	for( i=1; i<n; i++)
 		{
-		    if (a[i] > mx)
-                mx = a[i];
+		    if (k[i] > mx)
+                mx = k[i];
 		}
 	return mx;
 }
 
-// A function to do counting sort of arr[] according to
+// A function to do counting sort of k[] according to
 // the digit represented by exp.
-void countS(int a[], int n, int exp)
+void countS(int k[], int n, int exp)
 {
 	int op[n]; // output array
 	int i, count[10] = {0};
 
 	// Store count of occurrences in count[]
 	for (i = 0; i < n; i++)
-            count[ (a[i]/exp)%10 ]++;
+            count[ (k[i]/exp)%10 ]++;
 
 	// Change count[i] so that count[i] now contains actual
 	// position of this digit in output[]
@@ -45,49 +45,49 @@ void countS(int a[], int n, int exp)
 	// Build the output array
 	for (i = n - 1; i >= 0; i--)
 	{
-	    op[count[ (a[i]/exp)%10 ] - 1] = arr[i];
-	    count[ (a[i]/exp)%10 ]--;
+	    op[count[ (k[i]/exp)%10 ] - 1] = arr[i];
+	    count[ (k[i]/exp)%10 ]--;
 	}
 
-	// Copy the output array to arr[], so that arr[] now
+	// Copy the output array to k[], so that k[] now
 	// contains sorted numbers according to current digit
 	for (i = 0; i < n; i++)
-	    a[i] = op[i];
+	    k[i] = op[i];
 }
 
-// The main function to that sorts arr[] of size n using
+// The main function to that sorts k[] of size n using
 // Radix Sort
-void sort(int a[], int n)
+void sort(int k[], int n)
 {
 	// Find the maximum number to know number of digits
-	int m = getMax(a,n);
+	int m = getMax(k,n);
 	int exp;
 
 	// Do counting sort for every digit. Note that instead
 	// of passing digit number, exp is passed. exp is 10^i
 	// where i is current digit number
-	for (exp=1;m/exp >0; exp*= 10)
-	    countS(a,n,exp);
+	for (exp = 1; m/exp >0; exp*= 10)
+	    countS(k,n,exp);
 }
 
 // A utility function to print an array
-void print(int a[], int n)
+void print(int k[], int n)
 {
     int i;
     printf("The sorted order is :");
-    for (i=0;i<n;i++)
-        printf("%d \n",a[i]);
+    for (i = 0; i<n; i++)
+        printf("%d \n",k[i]);
 }
 
 // Driver program to test above functions
 int main()
 {
-	int a[10],i,m=10;
+	int k[10],i,m=10;
 	printf("enter the elements : \n");
-	for(i=0;i<m;i++)
-            scanf ("%d",&a[i]);
-	int n = sizeof(a)/sizeof(a[0]);
-	sort(a,n);
-	print(a, n);
+	for(i=0; i<m; i++)
+            scanf ("%d",&k[i]);
+	int n = sizeof(k)/sizeof(k[0]);
+	sort(k,n);
+	print(k, n);
 	return 0;
 }
